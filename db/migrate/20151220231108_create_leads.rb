@@ -6,6 +6,8 @@ class CreateLeads < ActiveRecord::Migration
       t.string :phone
       t.text :description
       t.integer :inquiry_id
+      t.string :address
+      t.string :recepient_type
 
       t.timestamps null: false
     end

@@ -11,6 +11,8 @@
           = f.input :email
           = f.input :phone
           = f.input :description, label: "Questions"
+          = f.hidden_field :address, value: @address
+          = f.hidden_field :recepient_type, value: "offer"
           = f.button :submit, "Get Offer Now", class: 'btn btn-danger lead-submit-btn'
       .modal-footer
         %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close

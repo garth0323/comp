@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151220231108) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "date_sells", force: :cascade do |t|
     t.date     "goal_date"
     t.date     "input_date"
@@ -33,8 +36,10 @@ ActiveRecord::Schema.define(version: 20151220231108) do
     t.string   "phone"
     t.text     "description"
     t.integer  "inquiry_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "address"
+    t.string   "recepient_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "visitors", force: :cascade do |t|
