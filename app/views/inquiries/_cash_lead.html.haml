@@ -1,0 +1,16 @@
+#cash_lead.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title Get a Cash Offer Soon
+      .modal-body
+        = simple_form_for(Lead.new, url: lead_submit_inquiries_path, remote: true, html: {class: 'form-horizontal' }) do |f|
+          = f.input :name
+          = f.input :email
+          = f.input :phone
+          = f.input :description
+          = f.button :submit
+      .modal-footer
+        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close

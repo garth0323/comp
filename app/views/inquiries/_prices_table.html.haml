@@ -1,0 +1,77 @@
+.container
+  .row
+    %h3.show-header
+      When do you want to close?
+    .col-md-3
+      .panel.panel-success
+        .panel-heading
+          %h4.text-center
+            Cash Offer
+        .panel-body.text-center
+          %p.lead
+            %strong 
+              = eighty_percent(@result)
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Close quickly
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Avoid paperwork
+        .panel-footer
+          %button.btn.btn-lg.btn-block.btn-success{"data-target" => "#cash_lead", "data-toggle" => "modal", :type => "button"} Get an Offer
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          %h4.text-center
+            Close in 45-60 Days
+        .panel-body.text-center
+          %p.lead
+            %strong
+              = ninety_percent(@result)
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            House sold quickly
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            No more mortgage payments
+        .panel-footer
+          %button.btn.btn-lg.btn-block.btn-default{"data-target" => "#realtor_lead", "data-toggle" => "modal", :type => "button"} Close Soon
+    .col-md-3
+      .panel.panel-warning
+        .panel-heading
+          %h4.text-center
+            90 Days to Closing
+        .panel-body.text-center
+          %p.lead
+            %strong 
+              = hundred_percent(@result)
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Maximize Value
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Payoff mortgage
+        .panel-footer
+          %button.btn.btn-lg.btn-block.btn-warning{"data-target" => "#realtor_lead", "data-toggle" => "modal", :type => "button"} Expert Opinion
+    .col-md-3
+      .panel.panel-danger
+        .panel-heading
+          %h4.text-center
+            90+ Days to Close
+        .panel-body.text-center
+          %p.lead
+            %strong 
+              = hundred_five_percent(@result)
+        %ul.list-group.list-group-flush.text-center
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            May not get offers
+          %li.list-group-item
+            %i.icon-ok.text-danger>
+            Price reductions needed
+        .panel-footer
+          %button.btn.btn-lg.btn-block.btn-danger{"data-target" => "#realtor_lead", "data-toggle" => "modal", :type => "button"} Custom Quote
+    

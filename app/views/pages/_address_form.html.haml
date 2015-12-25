@@ -1,0 +1,3 @@
+= simple_form_for(@inquiry, html: {class: 'form-horizontal' }) do |f|
+  = f.input :address, label: false, input_html: {id: 'gmaps-input-address'}, placeholder: 'Start typing a place...'
+  = f.button :submit, "Find Your Price", class: 'inquiry_submit'
