@@ -6,11 +6,12 @@
         %button.close{"data-dismiss" => "modal", :type => "button"} &times;
         %h4.modal-title List Your Home With an Expert
       .modal-body
-        = simple_form_for(Lead.new, url: lead_submit_inquiries_path, remote: true, html: {class: 'form-horizontal' }) do |f|
-          = f.input :name
+        = simple_form_for(Lead.new, url: lead_submit_inquiries_path, remote: true, html: {class: 'form form-horizontal' }) do |f|
+          = f.input :name, label: "Full Name"
           = f.input :email
           = f.input :phone
-          = f.input :description
-          = f.button :submit
+          = f.input :description, label: "Questions"
+          = f.button :submit, "Contact Expert Now", class: 'btn btn-danger lead-submit-btn'
       .modal-footer
         %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
+
