@@ -1,0 +1,5 @@
+<% if @lead.errors.messages.present? %>
+  $(".lead-body").html("<%= j (render :partial => 'lead_form', :locals => { :lead => @lead }) %>");
+<% else %>
+  $('#realtor_lead').modal('hide');
+<% end %>

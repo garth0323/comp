@@ -1,19 +1,7 @@
 #realtor_lead.modal.fade{:role => "dialog"}
   .modal-dialog
-    / Modal content
     .modal-content
       .modal-header
-        %button.close{"data-dismiss" => "modal", :type => "button"} &times;
-        %h4.modal-title List Your Home With an Expert
-      .modal-body
-        = simple_form_for(Lead.new, url: lead_submit_inquiries_path, remote: true, html: {class: 'form form-horizontal' }) do |f|
-          = f.input :name, label: "Full Name"
-          = f.input :email
-          = f.input :phone
-          = f.input :description, label: "Questions"
-          = f.hidden_field :address, value: @address
-          = f.hidden_field :recepient_type, value: "realtor"
-          = f.button :submit, "Contact Expert Now", class: 'btn btn-danger lead-submit-btn'
-      .modal-footer
-        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Close
-
+        %h4.modal-title.mod-tit-lead Free Instant Property Valuation Report
+      .modal-body.lead-body
+        = render 'lead_form', lead: @lead

@@ -2,8 +2,8 @@ class Inquiry < ActiveRecord::Base
   belongs_to :visitor
   has_many :date_sells
 
+  validates_presence_of :address
   
-
   def self.search_results(address)
     value = Inquiry.estimate(address)
     value.split("$")[1]

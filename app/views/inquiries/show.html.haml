@@ -1,10 +1,16 @@
+= render 'lead_realtor'
+= render 'cash_offer'
+= render 'sixty_days'
+= render 'ninety_days'
+= render 'ninety_plus'
 .container
   .jumbotron.text-center.show-jumbotron
     .well.well-lg
       %h2.address-show-page
         = @address
-    =# render 'date_form'
     = render 'prices_table'
-    = render 'lead_realtor'
-    = render 'cash_lead'
   
+:javascript
+  $(window).load(function(){
+      $('#realtor_lead').modal('show');
+  });

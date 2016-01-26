@@ -1,0 +1,9 @@
+= simple_form_for lead, url: lead_submit_inquiries_path, remote: true, html: {class: 'form form-horizontal' } do |f|  
+  = f.error_notification  message: 'Please fix the errors below:', class: 'form_error'
+  = f.input :name, label: "Full Name"
+  = f.input :email
+  = f.input :phone, placeholder: 'XXX-XXX-XXXX format please'
+  = f.input :description, label: "Questions", placeholder: "Do you have any questions about selling your home?"
+  = f.hidden_field :address, value: @address
+  = f.hidden_field :recepient_type, value: "realtor"
+  = f.button :submit, "Access Report Now", class: 'btn btn-success btn-block btn-lg lead-submit-btn'
