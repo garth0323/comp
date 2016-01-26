@@ -5,9 +5,7 @@ class Inquiry < ActiveRecord::Base
   validates_presence_of :address
   
   def self.search_results(address)
-    value = Inquiry.estimate(address)
-    value.split("$")[1]
-    value.gsub(/[,$]/, '') 
+    Inquiry.estimate(address)
   end
 
   def self.estimate(address)
@@ -16,8 +14,18 @@ class Inquiry < ActiveRecord::Base
     form = page.forms.first
     form.citystatezip = address
     page = form.submit
-    mechanize.page.search(".zsg-tooltip-launch_keyword+ span").text
+    one = mechanize.page.search(".zsg-tooltip-launch_keyword+ span").text
+    two = mechanize.page.search(".off-market-row+ .home-summary-row .zsg-tooltip-launch_keyword+ span").text
+    Inquiry.decide_which_result(one, two)
   end
 
+  def self.decide_which_result(one, two)
+    val = two.to_s.gsub(/[^0-9]/, '')
+    if val.to_i == 0
+      return one.to_s.gsub(/[^0-9]/, '')
+    else
+      return val
+    end
+  end
 end
 

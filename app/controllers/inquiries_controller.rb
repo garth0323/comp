@@ -5,9 +5,14 @@ class InquiriesController < ApplicationController
     inquiry.visitor_id = session[:visitor]
     inquiry.save!
     @result = Inquiry.search_results(params[:inquiry][:address])
-    @address = params[:inquiry][:address]
-    @lead = Lead.new
-    render :show
+    if @result == ''
+      flash[:alert] = "There was a problem locating the address!"
+      redirect_to :back
+    else
+      @address = params[:inquiry][:address]
+      @lead = Lead.new
+      render :show
+    end
   end
 
   def show
